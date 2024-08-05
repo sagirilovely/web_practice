@@ -8,44 +8,13 @@
     <script src="vue.js"></script>
     <title>Document</title>
     <style>
-        .basic{
-            height: 300px;
-            width: 300px;
-            border: blue solid 1px;
-        }
-        .BkGroundRed{
-            background-color: red;
-        }
-        .borderBlack{
-            border: black solid 1px;
-        }
-        .borderRadius{
-            border-radius: 10px;
-        }
+        
     </style>
 </head>
 <body>
-<div id="root">
-   <div class="basic" :class="newStyleObj" @click="changeStyle">点击切换样式</div>
-</div>
 
 <script>
-    let vm = new Vue({
-        el: '#root',
-        data:{
-            newStyleObj:{
-                'BkGroundRed':true,
-                'borderBlack':true,
-                'borderRadius':true
-            },
-            index:0
-        },
-        methods:{
-            changeStyle(){
-                this.newStyleObj['BkGroundRed']=false;
-            }
-        }
-    })
+
 </script>
 </body>
 </html>
