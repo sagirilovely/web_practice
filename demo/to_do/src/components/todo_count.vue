@@ -1,6 +1,7 @@
 <template>
 <div>
-    <div>任务 {{count}}</div>
+    <div class="all">全部</div>
+    <div class="count">任务: {{count}}</div>
 </div>
 </template>
 
@@ -10,12 +11,18 @@ export default {
     props:['count'],
     data(){
         return{
-            count:this.count
         }
     }
 }
 </script>
 
 <style scoped>
-
+.all{
+    font-size: 50rem;
+    font-weight: bold;
+}
+.count{
+    font-size:40rem ;
+    font-weight: normal;
+}
 </style>

@@ -1,9 +1,9 @@
 <template>
 <div>
-    <ul>
-        <li  v-for="(value,key) in wait_done" :key="value.id"
+    <ul class="list">
+        <li v-for="(value,key) in wait_done" :key="value.id"
         @click="remove_done(value.id)">
-            {{value.do}}
+            <span>{{value.do}}</span>
         </li>
     </ul>
 </div>
@@ -46,6 +46,10 @@ export default {
             handler(newValue,oldValue){
                 let id_from_time=(new Date()).getTime();
                 this.wait_done.unshift({id:id_from_time,do:newValue});
+
+                //控制动画
+
+
             }
         }
     },
@@ -63,5 +67,29 @@ export default {
 </script>
 
 <style scoped>
-
+.list{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+}
+.list>li{
+    background-color: white;
+    height: 150rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+    border-radius: 10rem;
+    flex-shrink: 0;
+    transition: all 1s ease-in-out;
+    box-shadow: 1rem 2rem 10rem 1rem gray;
+}
+.list>li span{
+    display: block;
+    overflow-x: hidden;
+    margin-left: 50rem;
+    margin-right: 50rem;
+}
 </style>

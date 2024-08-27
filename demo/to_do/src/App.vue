@@ -1,8 +1,8 @@
 <template>
-   <div>
-      <todo_count :count="todo_count"></todo_count>
-      <todo_list :new_todo="current_add" :get_count="get_count"></todo_list>
-      <todo_add :get_todo="get_todo"></todo_add>
+   <div class="container">
+      <todo_count class="header" :count="todo_count"></todo_count>
+      <todo_list class="todoList" :new_todo="current_add" :get_count="get_count"></todo_list>
+      <todo_add class="footer" :get_todo="get_todo"></todo_add>
    </div>
 </template>
 
@@ -44,8 +44,38 @@ ul,ol,li{
 }
 html{
     font-size: 0.13333vw;
+    height: 100%;
 }
 body{
    font-size: 40rem;
+   height: 100%;
+   background-color: #f9e8de;
+   font-family: "Microsoft YaHei UI";
+}
+.container{
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
+   justify-content: space-between;
+}
+.header{
+   height: 270rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   color:#a9432a;
+   margin: 30rem;
+}
+.todoList{
+   flex-basis: 100%;
+   display: flex;
+   overflow: auto;
+}
+.footer{
+   height:170rem;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
 }
 </style>
