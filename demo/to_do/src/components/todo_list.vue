@@ -92,4 +92,7 @@ export default {
     margin-left: 50rem;
     margin-right: 50rem;
 }
+.list>li span:hover{
+    cursor: default;
+}
 </style>

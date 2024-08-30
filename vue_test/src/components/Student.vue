@@ -1,27 +1,21 @@
 <template>
- <div>
-     <div @click="aFunc">学生姓名:{{stuName}}</div>
- </div>
+  <div>
+      <button @click="sendName">发送数据</button>
+  </div>
 </template>
-
 <script>
 export default {
-    name: "Student",
+    name:'Student',
     data(){
-      return{
-          stuName:'琪亚娜'
-      }
+        return{
+            name:'琪亚娜'
+        }
     },
-    props:['addStuName'],
     methods:{
-        aFunc(){
-            console.log(`@@@Student 将 ${this.stuName} 传给School`);
-            this.addStuName(this.stuName);
+        sendName(){
+            //触发事件,将本组件的数据作为参数
+            this.$bus.$emit('getStuName',this.name);
         }
     }
 }
-
 </script>
-<style scoped>
-
-</style>
