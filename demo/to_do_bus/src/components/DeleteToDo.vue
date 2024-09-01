@@ -27,7 +27,9 @@ export default {
         },
         //删除被选中的todo
         delAllTodo(){
-            this.$bus.$emit('getDelButtonCondition',(new Date()).getTime())
+            this.$bus.$emit('getDelButtonCondition',(new Date()).getTime());
+            //更改全选按钮为未选
+            this.isChecked=false;
         }
     },
     watch:{

@@ -29,7 +29,7 @@ ul,li{
     list-style: none;
 }
 html{
-    font-size: 0.13333vw;
+    font-size: 0.053vw;
 }
 body{
     display: flex;
