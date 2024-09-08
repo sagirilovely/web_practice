@@ -2,19 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="vue.js"></script>
     <title>Document</title>
-    <style>
-        
-    </style>
 </head>
 <body>
+    <div id="root"></div>
 
 <script>
-
+    //定义一个学生组件,被学校组件管理
+    const student=Vue.extend({
+        template:`<div>学生姓名:{{name}}</div>`,
+        data(){
+            return {
+                name:'御坂美琴'
+            }
+        }
+    })
+    //定义一个学校组件
+    const school=Vue.extend({
+        template:`<div>学校名称:{{name}}
+                        <student></student>
+                  </div> `,
+        components:{
+          student:student
+        },
+        data(){
+            return {
+                name:'都市学园'
+            }
+        }
+    });
+    //定义一个app组件,其他组件都被app组件管理
+    const app=Vue.extend({
+        template:`<school></school>`,
+        components:{
+            school:school
+        }
+    })
+    //创建vm实例,里面只管理app组件
+    const vm=new Vue({
+        el:'#root',
+        template:`<app></app>`,
+        components:{
+            app:app
+        }
+    })
 </script>
 </body>
 </html>
