@@ -1,5 +1,5 @@
 # SagiriInput
-1. stateKey:必传一个vuex中state中的对象名
+1. stateKey:必传一个vuex中state中的对象名,如`user.id`
 2. dispatchAction:必传一个vuex中action中的方法名
 3. height:传入字符串,例如: 10px
 4. width:传入字符串,例如: 10px

@@ -2,7 +2,7 @@
   <input type="text"
           v-model="finalValue"
          :style="'width:'+width +';height:'+height +';font-size:'+fontSize"
-          @keydown.enter="completeInput()" >
+          @keydown.enter="completeInput()" @blur="completeInput()" >
 </template>
 <script>
 export default {
@@ -30,13 +30,21 @@ export default {
   },
   data(){
     return{
-      finalValue: this.$store.state[this.stateKey]
+      finalValue: this.getRelStateValue(this.stateKey)
     }
   },
   computed:{
 
   },
   methods:{
+    getRelStateValue(oriKey){
+      let arr=oriKey.split('.');
+      let path='';
+      for (let p of arr){
+        path=path+"['"+p+"']"
+      }
+      return eval(`this.$store.state${path}`)
+    },
     completeInput(){
       this.$store.dispatch(this.dispatchAction,this.finalValue);
     }
@@ -53,9 +61,7 @@ input{
   border-radius: 15px;
   text-align: center;
   border: none;
+  transition: all 300ms ease-in-out;
 }
-input:hover{
-  border: none;
-  transition: all 50ms linear;
-}
+
 </style>

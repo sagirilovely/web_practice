@@ -6,14 +6,37 @@ export default new Vuex.Store({
     actions:{
         setTemporaryInputValue(context,value){
             context.commit('SETTEMPORARYINPUTVALUE',value);
+        },
+        setuserId(context,value){
+            context.commit('SETUSERID',value);
+        },
+        setuserPW(context,value){
+            context.commit('SETUSERPW',value);
+        },
+        setToDos(context,value){
+            context.commit("SETTODOS",value);
         }
     },
     mutations:{
         SETTEMPORARYINPUTVALUE(state,value){
             state.temporaryInputValue=value;
+        },
+        SETUSERID(state,value){
+            state.user.id=value;
+        },
+        SETUSERPW(state,value){
+            state.user.password=value;
+        },
+        SETTODOS(state,value){
+            state.todos=value;
         }
     },
     state:{
-        temporaryInputValue:''
+        temporaryInputValue:'',
+        user:{
+            id:'',
+            password:'',
+        },
+        todos:[]
     }
 })

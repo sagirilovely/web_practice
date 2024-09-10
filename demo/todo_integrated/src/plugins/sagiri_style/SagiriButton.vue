@@ -18,7 +18,7 @@ export default {
       default: function (){
         console.log(`有一个SagiriButton未传点击函数`)
       }
-    }
+    },
   },
   data(){
     return{
@@ -50,8 +50,8 @@ button {
       0.5px 0.5px 12px -5px rgba(0, 0, 0, 0.234),
       1.6px 1.6px 12.8px -5px rgba(0, 0, 0, 0.303),
       7px 7px 19px -5px rgba(0, 0, 0, 0.46);
-  height: 50px;
-  width: 120px;
+  height: 40px;
+  width: 100px;
   border-radius: 10px;
   color: white;
   font-size: 20px;

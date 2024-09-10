@@ -1,20 +1,16 @@
 <template>
- <div>
-    <SagiriButton color="red">删除所选</SagiriButton>
-   <br><br>
-   <SagiriCard height="40px" width="400px" fontSize="30px">33</SagiriCard>
-   <br><br>
-   <SagiriInput dispatchAction="setTemporaryInputValue" state-key="temporaryInputValue" width="200px" height="30px"
-   ></SagiriInput>
-
-   <div>{{$store.state.temporaryInputValue}}</div>
+ <div class="app">
+   <HomePage v-show="$route.path==='/'"></HomePage>
+   <router-view></router-view>
  </div>
 </template>
 <script>
+import HomePage from "@/components/HomePage.vue";
+import Menu from "@/pages/Menu.vue";
 export  default {
   name:"App",
   components:{
-
+    HomePage,Menu
   },
   data(){
     return{
@@ -30,5 +26,7 @@ export  default {
 }
 </script>
 <style>
-
+.app{
+  height: 100%;
+}
 </style>
