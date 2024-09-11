@@ -14,7 +14,12 @@ export default new Vuex.Store({
             context.commit('SETUSERPW',value);
         },
         setToDos(context,value){
+            //更新veux的数据
             context.commit("SETTODOS",value);
+            //更新本地存储的数据
+            let JSONtodoList=value;
+            JSON.stringify(JSONtodoList);
+            localStorage.setItem(context.state.user.id+'Todos',JSON.stringify(JSONtodoList))
         }
     },
     mutations:{

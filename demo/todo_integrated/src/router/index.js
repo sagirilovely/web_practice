@@ -15,22 +15,22 @@ const router = new VueRouter({
             children: [
                 {
                     name: 'ToDoImportant',
-                    path: 'todocompleted',
+                    path: 'ToDoImportant',
                     component:ToDoImportant
                 },
                 {
                     name: "ToDoAll",
-                    path: "todoall",
+                    path: "ToDoAll",
                     component:ToDoAll
                 },
                 {
                     name: "ToDoToday",
-                    path:"todotoday",
+                    path:"ToDoToday",
                     component:ToDoToday
                 },
                 {
                     name: "ToDoCompleted",
-                    path:"todocompleted",
+                    path:"ToDoCompleted",
                     component:ToDoCompleted
                 }
             ]

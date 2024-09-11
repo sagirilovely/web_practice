@@ -64,9 +64,7 @@ export default {
         },800)
       }else if(nowUserId===localStorageId && nowUserPW===localStoragePW){
         //若一致,则跳到第二页
-        this.$router.replace({
-          name:'Menu'
-        })
+        this.$router.replace({name:'Menu'});
       }
 
 

@@ -29,47 +29,51 @@ export default {
     }
   },
   methods:{
+    getCurrentPath(){
+      let pathArr=(this.$route.path).split('/');
+      return (pathArr[pathArr.length-1])
+    },
     backHome(){
       this.$router.replace({name:'HomePage'})
     },
     openToDoToday(){
-      this.$router.replace({name:'ToDoToday'});
+      if(this.getCurrentPath()!=='ToDoToday'){
+        this.$router.replace({name:'ToDoToday'});
+      }
     },
     openToDoAll(){
-      this.$router.replace({name:'ToDoAll'});
+      if(this.getCurrentPath()!=='ToDoAll'){
+        this.$router.replace({name:'ToDoAll'});
+      }
     },
     openToDoImportant(){
-      this.$router.replace({name:'ToDoImportant'});
+      if(this.getCurrentPath()!=='ToDoImportant') {
+        this.$router.replace({name: 'ToDoImportant'});
+      }
     },
     openToDoCompleted(){
-      this.$router.replace({name:'ToDoCompleted'});
+      if(this.getCurrentPath()!=='ToDoCompleted'){
+        this.$router.replace({name:'ToDoCompleted'});
+      }
     }
   },
   mounted() {
     let localTodo=localStorage.getItem(this.userId+"Todos");
-    if(!localTodo){
-      localTodo=[
-        {
-          id:123,
-          work:'测试样本',
-          isImportant:false,
-          isCompleted:false,
-          isChecked:false,
-          isEditing:false
-        },
-        {
-          id:321,
-          work:'右处按钮删除',
-          isImportant:false,
-          isCompleted:false,
-          isChecked:false,
-          idEditing:false
-        }
-      ];
-      localStorage.setItem(this.userId+'Todos',JSON.stringify(localTodo))
+    console.log(localTodo)
+    if(localTodo){
+      localTodo=JSON.parse(localTodo)
+      this.$store.dispatch('setToDos',localTodo)
+    }else{
+      this.$store.dispatch('setToDos',[{
+        id:123,
+        work:'初始化',
+        isImportant:false,
+        isCompleted:false,
+        isChecked:false,
+        idEditing:false
+      }])
     }
-    //存入vuex中
-    this.$store.dispatch('setToDos',localTodo);
+    this.$router.replace({name:'ToDoAll'});
   }
 }
 </script>
@@ -79,6 +83,7 @@ export default {
   display: flex;
   width: auto;
   height: 100%;
+  overflow: hidden;
 }
 .left{
   transition: all 300ms ease-in-out;
