@@ -1,0 +1,12 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "sagiri's demo",
+  "main": "index.js",
+  "author": "sagiri",
+  "license": "MIT",
+  "dependencies": {
+    "md5": "^2.3.0",
+    "nodemon": "^3.1.4"
+  }
+}
