@@ -19,6 +19,7 @@
             .then(res =>res.text())
             .then((value)=>{
                 console.log(value)
+               divNode.innerText=value;
             })
             .catch((err)=>{
                 console.log('错误为:'+err);
