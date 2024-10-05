@@ -1,13 +1,16 @@
 {
-  "name": "test",
-  "version": "1.0.0",
-  "description": "sagiri's demo",
-  "main": "index.js",
-  "author": "sagiri",
-  "license": "MIT",
+  "name": "node-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
-    "cheerio": "^1.0.0",
-    "md5": "^2.3.0",
-    "nodemon": "^3.1.4"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }

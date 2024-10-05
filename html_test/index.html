@@ -15,15 +15,28 @@
     let buttonNode=document.getElementsByClassName('BUT')[0]
     let divNode=document.getElementsByClassName('top')[0]
     buttonNode.addEventListener('click',()=>{
-        fetch('http://localhost:2333/')
-            .then(res =>res.text())
-            .then((value)=>{
-                console.log(value)
-               divNode.innerText=value;
-            })
-            .catch((err)=>{
-                console.log('错误为:'+err);
-            })
+        fetch("http://localhost:2333/name",{
+            method:'POST',
+            // headers:{
+            //     "content-type":"application/x-www-form-urlencoded"
+            // },
+            // body:new URLSearchParams({
+            //     name:'sagiri',
+            //     age:'14'
+            // })
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify({"name":"sagiri"})
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res);
+            divNode.innerText=res;
+        }).catch(err=>{
+            console.log(err);
+            divNode.innerText=err;
+        })
     })
 
 </script>
